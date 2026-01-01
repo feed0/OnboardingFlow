@@ -15,9 +15,15 @@ struct WelcomePage: View {
         VStack {
             
             /// Shape
-            RoundedRectangle(cornerRadius: 30)
-                .frame(width: 150, height: 150)
-                .foregroundStyle(.tint)
+            ZStack {
+                RoundedRectangle(cornerRadius: 30)
+                    .frame(width: 150, height: 150)
+                    .foregroundStyle(.tint)
+                
+                Image(systemName: "figure.2.and.child.holdinghands")
+                    .font(.system(size: 70))
+                    .foregroundStyle(.white)
+            }
             
             /// Title
             Text("Welcome to My App")
@@ -27,18 +33,12 @@ struct WelcomePage: View {
                 .fontDesign(.serif)
                 .padding(.vertical)
             
-                .border(.yellow, width: 1)
-            
             /// Description
             Text("This is one of my first SwiftUI apps following the apple developer tutroials")
                 .font(.title2)
                 .multilineTextAlignment(.center)
-            
-                .border(.yellow, width: 1)
         }
-        .border(.blue, width: 1.5)
         .padding()
-        .border(.blue, width: 1.5)
     }
 }
 
