@@ -9,10 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
+        let gradientColors = OFColors.Gradient.gradientColors
+        
         TabView {
             WelcomePage()
             FeaturesPage()
         }
+        .background(Gradient(colors: gradientColors))
         .tabViewStyle(.page)
     }
 }
