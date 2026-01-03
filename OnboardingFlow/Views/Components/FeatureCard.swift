@@ -14,23 +14,43 @@ struct FeatureCard: View {
     let iconName: String
     let description: String
     
+    // MARK: Design
+    private typealias OFRadius = OFSizes.Radius
+    private typealias OFSolidColor = OFColors.SolidColor
+    private typealias OFSpacing = OFSizes.Spacing
+    
     // MARK: - Body
     
     var body: some View {
         HStack {
-            Image(systemName: iconName)
-                .font(.largeTitle)
-                .frame(width: 50)
-                .padding(.trailing, 10)
             
-            Text(description)
+            iconImage
+                .frame(width: OFSpacing.extraLarge)
+                .padding(.trailing, OFSpacing.small)
+            
+            descriptionText
             
             Spacer()
         }
         .padding()
-        .background(.tint, in: RoundedRectangle(cornerRadius: 12))
-        .foregroundStyle(.white)
-
+        .background {
+            RoundedRectangle(cornerRadius: OFRadius.regular)
+                .foregroundStyle(OFSolidColor.tint)
+                .opacity(0.25)
+                .brightness(-0.25)
+        }
+        .foregroundStyle(OFSolidColor.white)
+    }
+    
+    // MARK: - ViewBuilder
+    
+    private var iconImage: some View {
+        Image(systemName: iconName)
+            .font(.largeTitle)
+    }
+    
+    private var descriptionText: some View {
+        Text(description)
     }
 }
 

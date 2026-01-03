@@ -8,18 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: - Properties
+    
+    // MARK: Design
+    private typealias OFGradient = OFColors.Gradient
+    
+    // MARK: - Body
+    
     var body: some View {
-        
-        let gradientColors = OFColors.Gradient.gradientColors
         
         TabView {
             WelcomePage()
             FeaturesPage()
         }
-        .background(Gradient(colors: gradientColors))
+        .background(Gradient(colors: OFGradient.gradientColors))
         .tabViewStyle(.page)
+        .foregroundStyle(.white)
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     ContentView()
